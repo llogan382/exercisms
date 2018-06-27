@@ -42,8 +42,21 @@ function translate($string){
                         }
                     }
                 }
-                //if two consonants and one vowel. Check if fourth is a vowel here
-
+                //if two consonants and two vowels. Check if fourth is a vowel here
+                foreach($arrVowels as $value){
+                    if($fourth == $value){
+                        $pigLatin = strstr($string, $fourth) . $cluster . $third . "ay";
+                        return $pigLatin;
+                    }
+                }
+            }
+        }
+        //after first, next three are vowels (queen). 
+        //starting here, first is con and second is vowel. 
+        foreach($arrVowels as $value){
+            if($third == $value){
+                $pigLatin = strstr($string, $third) . $first . $second . "ay";
+                return $pigLatin;
             }
         }     
     }
@@ -52,8 +65,11 @@ function translate($string){
 
 //queen->eenquay, square->aresquay, 'yttria->yttriaay', 'xray-> xrayay', multi-word
 //these should pass:
-//cons and three vowels 
-//two con and one vowels? (square)
+//cons and three vowels for QUEEN. When I added lined 56-60, KOALA failed 
+//
+//two con and two vowels? (square) failed, chair passed? 
+//square-> aresquay; chair-> airchay; 
+//two cons vowel (xray) fails;
 }
 
 
