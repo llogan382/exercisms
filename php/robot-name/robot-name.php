@@ -36,7 +36,11 @@ class Robot
     
 
         return (implode($newName));
-        
+        return $this->name;
+    }
+
+    public function reset() {
+
     }
 
 }
