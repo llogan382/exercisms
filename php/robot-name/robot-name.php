@@ -13,7 +13,7 @@ class Robot
     /**
      * todo: test name sticks
      */
-    private $_name;
+    private $name;
     private $letters;
     private $usedNames = [];
     private $number = 0;
@@ -36,7 +36,6 @@ class Robot
     
 
         return (implode($newName));
-        return $this->name;
     }
 
     public function reset() {
