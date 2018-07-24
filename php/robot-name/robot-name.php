@@ -42,5 +42,9 @@ class Robot
     public function reset() {
 
     }
+}
+class NamesArray
+{
+
 
 }
