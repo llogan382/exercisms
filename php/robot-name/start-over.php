@@ -3,6 +3,8 @@
 /**
  * create a class called robot
  * this class will return an object from the second class
+ * first class will return method getname and rest
+ * 
  * 
  * second class will run the methods, store the array
  * of unique values
