@@ -13,7 +13,7 @@ class Robot
     /**
      * todo: test name sticks
      */
-    private $_name;
+    private $name;
     private $letters;
     private $usedNames = [];
     private $number = 0;
@@ -24,27 +24,24 @@ class Robot
      * 
      * @return Newname;
      */
-    public function getName()
-    
-    {
+    public function getName() {
+        return $this->newName;
+    }
+
+    public function reset() {
+        $this->newName = NamesArray::uniqueNameArray();
+    }
+
+}
+class NamesArray{
+
+    public static function uniqueNameArray() {
         $letters = range('A', 'Z');
         $number = str_pad(rand(1, 999), 3, '0', STR_PAD_LEFT);
         $name = array_rand($letters, 2);
         $newName = $letters[$name[0]] . $letters[$name[1]] . $number;
         $usedNaes = array_unique(explode( " ", $newName));
         $newName = array_unique($usedNaes);
-    
-
-        return (implode($newName));
-        return $this->name;
     }
-
-    public function reset() {
-
-    }
-}
-class NamesArray
-{
-
 
 }
