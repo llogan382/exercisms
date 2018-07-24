@@ -1,47 +1,38 @@
 <?php
 /**
- * OOP has different PATTERNS in each code
- * examples include constructors- some tutorials might not have them
- * We will use MVC patterns
- * So what is MVC patterns? 
- * View- what you see
- * Controller- takes input, requests from the user
- * Model- knows everything about the database
+ * create a class called robot
+ * this class will return an object from the second class
+ * first class will return method getname and rest
+ * second class will run the methods, store the array
+ * of unique values
  */
-class Robot
-{
-    /**
-     * todo: test name sticks
-     */
-    private $name;
-    private $letters;
-    private $usedNames = [];
-    private $number = 0;
-    private $newName;
-  
-    /**
-     * Creates function used in class
-     * 
-     * @return Newname;
-     */
-    public function getName() {
-        return $this->newName;
-    }
 
-    public function reset() {
-        $this->newName = NamesArray::uniqueNameArray();
-    }
+class Robot {
+   private $name;
 
+   public function __construct() {
+   $this->reset();
+   }
+   public function getName() {
+   return $this->name;
+   }
+   public function reset() {
+   $this->name = NamesArray::getName();
+   }
 }
-class NamesArray{
+class NamesArray {
+   private $name; 
+   private static $letters; 
+   private static $number = 0; 
+   private static $new_name; 
 
-    public static function uniqueNameArray() {
-        $letters = range('A', 'Z');
-        $number = str_pad(rand(1, 999), 3, '0', STR_PAD_LEFT);
-        $name = array_rand($letters, 2);
-        $newName = $letters[$name[0]] . $letters[$name[1]] . $number;
-        $usedNaes = array_unique(explode( " ", $newName));
-        $newName = array_unique($usedNaes);
-    }
-
+   public function getName() {
+      $letters = range( 'A', 'Z' );
+      $number = str_pad( rand( 1, 999 ), 3, '0', STR_PAD_LEFT );      
+      $name = array_rand($letters, 2);
+      $new_name = $letters [ $name[0] ] . $letters [ $name[1] ] . $number;
+      $used_names = array_unique( explode( ' ', $new_name ) );
+      $new_name = array_unique( $used_names );
+      return ( implode( $new_name ) );
+   }
 }
